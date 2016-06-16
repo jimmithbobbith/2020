@@ -1,0 +1,19 @@
+
+.st-wrapper {
+    height: 50vh;
+
+    width: 100%;
+	position: relative;
+	margin: 0 auto;
+	-webkit-perspective: 1200px;
+	-webkit-perspective-origin: 50% 100%;
+	-moz-perspective: 1200px;
+	-moz-perspective-origin: 50% 100%;
+	-o-perspective: 1200px;
+	-o-perspective-origin: 50% 100%;
+	-ms-perspective: 1200px;
+	-ms-perspective-origin: 50% 100%;
+	perspective: 1200px;
+	perspective-origin: 50% 100%;
+}
+

@@ -1,0 +1,38 @@
+/* Custom Elastislide Styling */
+
+
+.elastislide-horizontal {
+	background-color: transparent;
+}
+.elastislide-horizontal.elastislide-loading {
+	background-image: url(../images/loading_dark.gif);
+}
+
+.elastislide-carousel ul li a{
+	padding: 2px;
+}
+
+.elastislide-carousel ul li a img {
+	border: none;
+	box-shadow: 0 1px 2px #000;
+}
+
+.elastislide-wrapper nav span {
+	background-color: #666;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.2);
+}
+
+.image-preview img {
+	max-width: 100%;
+	display: block;
+}
+
+.elastislide-carousel ul li.current-img a img {
+	box-shadow: 0 0 3px 2px rgba(62,235,255,0.8);
+}
+
+@media screen and (max-width: 460px) {
+	.demo-3 .elastislide-horizontal {
+		padding: 10px 40px;
+	}
+}

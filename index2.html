@@ -1,0 +1,150 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Turn.js responsive book - jsFiddle demo by kmturley</title>
+
+
+    <script type="text/javascript" src="http://www.turnjs.com/lib/turn.min.js"></script>
+
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="js/jquery-2.0.3.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery-migrate-1.2.1.js"></script>
+    <script src="js/jquery.ba-throttle-debounce.js"></script>
+    <script src="http://www.turnjs.com/lib/turn.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<div class="t">
+    <div class="tc rel">
+        <div class="book" id="book">
+            <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/01.jpg"
+                                   alt=""/></div>
+            <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/02.jpg"
+                                   alt=""/></div>
+            <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/03.jpg"
+                                   alt=""/></div>
+            <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/04.jpg"
+                                   alt=""/></div>
+            <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/05.jpg"
+                                   alt=""/></div>
+            <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/06.jpg"
+                                   alt=""/></div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">//<![CDATA[
+
+/*
+ * Turn.js responsive book
+ */
+
+/*globals window, document, $*/
+
+(function () {
+    'use strict';
+
+    var module = {
+        ratio: 1,
+        init: function (id) {
+            var me = this;
+
+            // if older browser then don't run javascript
+            if (document.addEventListener) {
+                this.el = document.getElementById(id);
+                this.resize();
+                this.plugins();
+
+                // on window resize, update the plugin size
+                window.addEventListener('resize', function (e) {
+                    var size = me.resize();
+                    $(me.el).turn('size', size.width, size.height);
+                });
+            }
+        },
+        resize: function () {
+            // reset the width and height to the css defaults
+            this.el.style.width = '';
+            this.el.style.height = '';
+
+            var width = this.el.clientWidth,
+                height = Math.round(width / this.ratio),
+                padded = Math.round(document.body.clientHeight * 0.9);
+
+            // if the height is too big for the window, constrain it
+            if (height > padded) {
+                height = padded;
+                width = Math.round(height * this.ratio);
+            }
+
+            // set the width and height matching the aspect ratio
+            this.el.style.width = width + 'px';
+            this.el.style.height = height + 'px';
+
+            return {
+                width: width,
+                height: height
+            };
+        },
+        plugins: function () {
+            // run the plugin
+            $(this.el).turn({
+                gradients: true,
+                acceleration: true
+            });
+            // hide the body overflow
+            document.body.className = 'hide-overflow';
+        }
+    };
+
+    module.init('book');
+}());
+//]]>
+
+</script>
+
+
+<!-- Artboard: Artboard_1 -->
+<div id="maintext" class="g-artboard ">
+
+
+    <div id="g-ai0-1" class="mt_area">
+        <p class="mt_header">97% OF THE UNBORN</p>
+
+        <p class="mt_header">CHILDREN IS IN TOP CON</p>
+
+        <p class="mt_header">DITION</p>
+    </div>
+    <div id="g-ai0-2" class="mt_area">
+        <p class="mt_sub">Only 3% of children have a congenital Abnormality.</p>
+
+        <p class="mt_sub">Only 1 in 33 children have a health issue</p>
+    </div>
+    <div id="g-ai0-3" class="mt_area">
+        <p class="mt_body">Sometimes there is a medical condition that needs attention, and the SEO is designed to help
+            catch issues early. Being informed leads to the best decisions for the health of you and your child.</p>
+
+        <p>&nbsp;</p>
+    </div>
+    <div id="g-ai0-4" class="mt_area">
+        <p class="mt_body">Sometimes there is a medical condition that needs attention, and the SEO is designed to help
+            catch issues early. Being informed leads to the best decisions for the health of you and your child.</p>
+
+        <p>&nbsp;</p>
+    </div>
+</div>
+</body>
+</html>
